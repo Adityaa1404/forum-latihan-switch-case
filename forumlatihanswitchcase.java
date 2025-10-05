@@ -4,13 +4,16 @@ public class forumlatihanswitchcase {
         Scanner input = new Scanner(System.in);
         System.out.println("Selamat Datang di warung enaak");
         System.out.println("Mau pesan apa? ");
-        System.out.println("Pilihan menu: sate, pecel, penyetan");
+        System.out.println("Pilihan menu: ");
+        System.out.println("1. sate");
+        System.out.println("2. pecel");
+        System.out.println("3. penyetan");
         String pesan = input.nextLine();
 
         double totalHarga = 0; // ...changed code...
 
         switch (pesan) {
-            case "sate":
+            case "1":
                 System.out.println("Varian sate apa? (ayam/kambing)");
                 String varian11 = input.nextLine();
                     if (varian11.equalsIgnoreCase("ayam")) {
@@ -33,7 +36,7 @@ public class forumlatihanswitchcase {
                         System.out.println("Varian sate tidak tersedia");
                     }
                 break;
-            case "pecel":
+            case "2":
                 System.out.println("Lauk apa? (ayam/empal)");
                 String varian21 = input.nextLine();
                     if (varian21.equalsIgnoreCase("ayam")) {
@@ -56,11 +59,15 @@ public class forumlatihanswitchcase {
                         System.out.println("Lauk tidak tersedia");
                     }
                 break;
-            case "penyetan":
-                System.out.println("Lauk apa? (tahu tempe/telur/ayam)");
+            case "3":
+                System.out.println("Lauk apa?");
+                System.out.println("1. tahu tempe");
+                System.out.println("2. telur");
+                System.out.println("3. ayam");
+
                 String varian31 = input.nextLine();
                 switch (varian31) {
-                    case ("tahu tempe"): {
+                    case ("1"): {
                         System.out.println("Penyetan tahu tempe harganya 5.000");
                         System.out.println("Mau pesan berapa porsi? ");
                         int varian32 = input.nextInt();
@@ -70,7 +77,7 @@ public class forumlatihanswitchcase {
                         System.out.println("Total harga penyetan tahu tempe adalah "+totaltahutempe);
                         break;
                     }
-                    case ("telur"): {
+                    case ("2"): {
                         System.out.println("Penyetan telur harganya 7.000");
                         System.out.println("Mau pesan berapa porsi? ");
                         int varian33 = input.nextInt();
@@ -80,7 +87,7 @@ public class forumlatihanswitchcase {
                         System.out.println("Total harga penyetan telur adalah "+totaltelur);    
                         break;
                     }                    
-                    case ("ayam"): {
+                    case ("3"): {
                         System.out.println("Penyetan ayam harganya 10.000");
                         System.out.println("Mau pesan berapa porsi? ");
                         int varian34 = input.nextInt();
@@ -96,18 +103,19 @@ public class forumlatihanswitchcase {
                 }
                 break; // ...changed code...
         }
-
-        System.out.println("Apakah anda member? (ya/tidak)");
-        String memberr=input.nextLine();
-        if (memberr.equalsIgnoreCase("ya")) {
-            double akhir = totalHarga * 0.95; // 5% diskon ...changed code...
-            System.out.println("Anda mendapatkan diskon 5%");
-            System.out.println("Total sebelum diskon: " + (int)totalHarga);
-            System.out.println("Total setelah diskon: " + (int)akhir);
-        } else {
-            System.out.println("Anda tidak mendapatkan diskon");
-            System.out.println("Total yang harus dibayar: " + (int)totalHarga);
+        if (totalHarga > 0) { // ...changed code...
+            System.out.println("Apakah anda member? (ya/tidak)");
+            String memberr=input.nextLine();
+            if (memberr.equalsIgnoreCase("ya")) {
+                double akhir = totalHarga * 0.95; // 5% diskon ...changed code...
+                System.out.println("Anda mendapatkan diskon 5%");
+                System.out.println("Total sebelum diskon: " + (int)totalHarga);
+                System.out.println("Total setelah diskon: " + (int)akhir);
+            } else {
+                System.out.println("Anda tidak mendapatkan diskon");
+                System.out.println("Total yang harus dibayar: " + (int)totalHarga);
+            }
+            input.close();
         }
-        input.close();
     }   
 }
